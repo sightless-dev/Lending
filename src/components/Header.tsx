@@ -4,11 +4,11 @@ import { cn } from "../lib/cn";
 import { motion, AnimatePresence } from "framer-motion";
 
 const links = [
-  { href: "#about", label: "Обо мне" },
-  { href: "#experience", label: "Опыт" },
+  { href: "#about", label: "Summary" },
+  { href: "#experience", label: "Опыт работы" },
+  { href: "#skills", label: "Стек & Инструменты" },
+  { href: "#mindset", label: "Soft Skills" },
   { href: "#results", label: "Результаты" },
-  { href: "#skills", label: "Инструменты" },
-  { href: "#mindset", label: "Mindset" },
   { href: "#contact", label: "Контакты" },
 ];
 
@@ -23,7 +23,6 @@ export function Header() {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
-  // transparent on top -> dark glass on scroll
   React.useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
     onScroll();
@@ -31,9 +30,8 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll as any);
   }, []);
 
-  // Scrollspy (active menu item)
   React.useEffect(() => {
-    const ids = ["top", "about", "experience", "results", "skills", "mindset", "contact"];
+    const ids = ["top", "about", "experience", "skills", "mindset", "results", "contact"];
     const els = ids.map((id) => document.getElementById(id)).filter(Boolean) as HTMLElement[];
     if (!els.length) return;
 
