@@ -6,7 +6,7 @@ export function Footer() {
         <div className="flex items-center gap-2.5">
           {/* Убрали рамку и фон */}
           <span className="flex h-[30px] w-[30px] items-center justify-center overflow-hidden rounded-xl">
-            <img src="/src/assets/logo.png" alt="Logo" className="h-full w-full object-cover" />
+            <img src="/logo.png" alt="Logo" className="h-full w-full object-cover" />
           </span>
           <span className="text-[14px] text-white/60">Media Buyer • Gambling Vertical</span>
         </div>

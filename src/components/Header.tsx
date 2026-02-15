@@ -60,7 +60,7 @@ export function Header() {
         <a className="flex items-center gap-2.5" href="#top" aria-label="Media Buyer">
           {/* Убрали рамку и фон */}
           <span className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl">
-            <img src="/src/assets/logo.png" alt="Logo" className="h-full w-full object-cover" />
+            <img src="/logo.png" alt="Logo" className="h-full w-full object-cover" />
           </span>
           <span className="text-[15px] font-semibold tracking-[-0.01em] text-white/90">
             Media Buyer
