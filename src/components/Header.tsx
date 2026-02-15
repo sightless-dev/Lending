@@ -58,8 +58,9 @@ export function Header() {
     >
       <div className="mx-auto flex h-[76px] w-[min(1200px,calc(100%-48px))] items-center justify-between gap-4">
         <a className="flex items-center gap-2.5" href="#top" aria-label="Media Buyer">
-          <span className="grid h-9 w-9 place-items-center overflow-hidden rounded-xl border border-white/10 bg-white/[.04]">
-            <img src="/src/assets/logo.svg" alt="Logo" className="h-full w-full object-contain p-1.5" />
+          <span className="grid h-10 w-10 place-items-center overflow-hidden rounded-xl border border-white/10 bg-white/[.04]">
+            {/* ИЗМЕНЕНО НА PNG */}
+            <img src="/src/assets/logo.png" alt="Logo" className="h-full w-full object-cover rounded-xl" />
           </span>
           <span className="text-[15px] font-semibold tracking-[-0.01em] text-white/90">
             Media Buyer

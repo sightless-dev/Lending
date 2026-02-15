@@ -20,7 +20,7 @@ export function Contact() {
 
         <Reveal delay={0.1}>
           <p className="mx-auto mb-6 max-w-[720px] text-[18px] leading-[1.65] text-white/65">
-            Рассматриваю Remote / Full-time. Если вы ищете Junior Media Buyer или Buyer Helper с крепкой базой и пониманием креативов — жду сообщения!
+            Рассматриваю <strong>Remote / Full-time</strong>. Если вы ищете Junior Media Buyer или Buyer Helper — жду сообщения!
           </p>
         </Reveal>
 

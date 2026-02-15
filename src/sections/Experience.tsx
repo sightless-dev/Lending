@@ -22,7 +22,7 @@ export function Experience() {
               </div>
 
               <p className="text-[16px] leading-[1.55] text-white/65">
-                Залив трафика с Facebook (Meta Ads) по модели ПБ (First Bill). Работа в связках CPA/CPL.
+                Залив трафика с Facebook (<strong>Meta Ads</strong>) по модели ПБ (<em>First Bill</em>). Работа в форматах <strong>CPA/CPL</strong>.
                 Оптимизация рекламных кампаний для достижения целевой цены за результат.
               </p>
 
@@ -38,25 +38,25 @@ export function Experience() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <Card className="p-7">
+            <Card className="p-7 border-purple-500/10 hover:border-purple-500/20">
               <div className="mb-3 flex items-center justify-between gap-2">
                 <div className="text-[18px] font-extrabold tracking-[-0.02em]">Media Buyer • E-commerce</div>
-                <div className="rounded-full border border-accent/20 bg-accent/10 px-3 py-1.5 text-[14px] text-accent/90 whitespace-nowrap">
+                <div className="rounded-full border border-purple-400/20 bg-purple-400/10 px-3 py-1.5 text-[14px] text-purple-300 whitespace-nowrap">
                   3 месяца
                 </div>
               </div>
 
               <p className="text-[16px] leading-[1.55] text-white/65">
-                Залив на белую/серую товарку. Фокус на удержание положительного ROI и масштабирование профитных связок.
+                Залив на белую/серую товарку. Фокус на удержание положительного <strong>ROI</strong> и масштабирование профитных связок.
               </p>
 
               <div className="mt-4 grid gap-2.5 grid-cols-2">
                 <div className="rounded-2xl border border-white/10 bg-black/20 p-3 text-center">
-                  <div className="text-[16px] font-extrabold text-accent/90">$1000</div>
+                  <div className="text-[16px] font-extrabold text-purple-300">$1000</div>
                   <div className="mt-1 text-[12px] text-white/55">Спенд в месяц</div>
                 </div>
                 <div className="rounded-2xl border border-white/10 bg-black/20 p-3 text-center">
-                  <div className="text-[16px] font-extrabold text-accent/90">До 100%</div>
+                  <div className="text-[16px] font-extrabold text-purple-300">До 100%</div>
                   <div className="mt-1 text-[12px] text-white/55">Показатель ROI</div>
                 </div>
               </div>

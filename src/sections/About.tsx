@@ -36,7 +36,7 @@ export function About() {
         <div className="grid gap-6 md:grid-cols-2 md:items-stretch">
           <Reveal delay={0.05}>
             <Card className="p-8">
-              <div className="mb-4 text-[18px] font-extrabold tracking-[-0.02em]">
+              <div className="mb-4 text-[18px] font-extrabold tracking-[-0.02em] text-white/95">
                 Бэкграунд (Summary)
               </div>
 
@@ -65,25 +65,25 @@ export function About() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <Card className="p-8">
-              <div className="mb-4 text-[18px] font-extrabold tracking-[-0.02em]">
+            <Card className="p-8 border-purple-500/10 hover:border-purple-400/30">
+              <div className="mb-4 text-[18px] font-extrabold tracking-[-0.02em] text-white/95">
                 Подход к работе
               </div>
 
               <p className="text-[18px] leading-[1.65] text-white/70">
-                Благодаря бэкграунду в дизайне я отлично понимаю механику креативов и то, как они влияют на конверт. Сейчас мой главный фокус — это работа с данными, аналитика залива и поиск связок с позитивным ROI.
+                Благодаря бэкграунду в дизайне я <span className="text-white/90">отлично понимаю механику креативов</span> и то, как они влияют на конверт. Сейчас мой главный фокус — это работа с данными, строгая аналитика залива и поиск связок с <strong>позитивным ROI</strong>.
               </p>
 
               <div className="mt-6 grid gap-3 md:grid-cols-2">
                 {[
-                  [<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>, "Качество креативов", "Контроль CTR и конверта"],
-                  [<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>, "Строгая аналитика", "Упор на прибыльность (ROI)"],
-                  [<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>, "Адаптивность", "Работа с антидетект/прокси"],
-                  [<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>, "Стрессоустойчивость", "Готовность к штормам FB"],
-                ].map(([ic, t, d], i) => (
+                  [<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>, "Качество креативов", "Контроль CTR и конверта", "accent"],
+                  [<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>, "Строгая аналитика", "Упор на прибыльность (ROI)", "purple"],
+                  [<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>, "Адаптивность", "Работа с антидетект/прокси", "accent"],
+                  [<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>, "Стрессоустойчивость", "Готовность к штормам FB", "accent"],
+                ].map(([ic, t, d, color], i) => (
                   <div key={i} className="rounded-2xl border border-white/10 bg-black/20 p-4">
                     <div className="mb-2 flex items-center gap-2.5">
-                      <div className="grid h-8 w-8 place-items-center rounded-xl border border-accent/20 bg-accent/10 text-accent/90">
+                      <div className={`grid h-8 w-8 place-items-center rounded-xl border ${color === 'purple' ? 'border-purple-400/20 bg-purple-400/10 text-purple-400' : 'border-accent/20 bg-accent/10 text-accent/90'}`}>
                         {ic}
                       </div>
                       <div className="text-[14px] font-extrabold text-white/85">{t}</div>
