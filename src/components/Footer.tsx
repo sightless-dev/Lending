@@ -4,9 +4,9 @@ export function Footer() {
     <footer className="border-t border-white/5 bg-black/25 py-8">
       <div className="mx-auto flex w-[min(1200px,calc(100%-48px))] items-center justify-between gap-3">
         <div className="flex items-center gap-2.5">
-          <span className="grid h-[30px] w-[30px] place-items-center overflow-hidden rounded-xl border border-white/10 bg-white/[.04]">
-            {/* ИЗМЕНЕНО НА PNG */}
-            <img src="/src/assets/logo.png" alt="Logo" className="h-full w-full object-cover rounded-xl" />
+          {/* Убрали рамку и фон */}
+          <span className="flex h-[30px] w-[30px] items-center justify-center overflow-hidden rounded-xl">
+            <img src="/src/assets/logo.png" alt="Logo" className="h-full w-full object-cover" />
           </span>
           <span className="text-[14px] text-white/60">Media Buyer • Gambling Vertical</span>
         </div>

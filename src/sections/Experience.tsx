@@ -22,7 +22,7 @@ export function Experience() {
               </div>
 
               <p className="text-[16px] leading-[1.55] text-white/65">
-                Залив трафика с Facebook (<strong>Meta Ads</strong>) по модели ПБ (<em>First Bill</em>). Работа в форматах <strong>CPA/CPL</strong>.
+                Залив трафика с Facebook (<strong>Meta Ads</strong>) по модели ПБ (<strong>First Bill</strong>). Работа в форматах <strong>CPA/CPL</strong>.
                 Оптимизация рекламных кампаний для достижения целевой цены за результат.
               </p>
 
