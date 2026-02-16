@@ -8,10 +8,10 @@ function IconRefresh() { return <svg width="22" height="22" viewBox="0 0 24 24" 
 function IconUsers() { return <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/><path d="M9.5 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="currentColor" strokeWidth="2" opacity=".7"/><path d="M22 21v-2a4 4 0 0 0-3-3.87" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity=".6"/><path d="M16.5 3.1a4 4 0 0 1 0 7.8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity=".6"/></svg>; }
 
 const items = [
-  { tone: "amber", icon: <IconLightning />, title: "Быстрое обучение", desc: "Легко адаптируюсь к сложностям, быстро вникаю в новые офферы и правила платформ." },
-  { tone: "cyan", icon: <IconRefresh />, title: "Стрессоустойчивость", desc: "Спокойно решаю задачи в условиях банов FB, микроштормов и неопределенности." },
-  { tone: "emerald", icon: <IconBook />, title: "Аналитическое мышление", desc: "Принимаю решения на основе цифр, а не интуиции. Оптимизирую то, что конвертит." },
-  { tone: "green", icon: <IconUsers />, title: "Работа в команде", desc: "Умею слушать тимлида, адекватно воспринимать фидбек и слаженно работать в коллективе." },
+  { tone: "amber", icon: <IconLightning />, title: "Самостійність", desc: "Не потребую мікроменеджменту. Знаю, як запустити, оптимізувати і масштабувати зв'язку." },
+  { tone: "cyan", icon: <IconRefresh />, title: "Стресостійкість", desc: "Спокійно працюю в умовах банів та мікроштормів FB. Проблема — це просто задача." },
+  { tone: "emerald", icon: <IconBook />, title: "Орієнтація на ROI", desc: "Заливаю не заради кліків чи красивих графіків, а заради фінального профіту." },
+  { tone: "green", icon: <IconUsers />, title: "Командний гравець", desc: "Адекватно сприймаю фідбек, ділюся підходами, поважаю процеси тімліда." },
 ] as const;
 
 const toneStyles = {

@@ -4,12 +4,12 @@ import { cn } from "../lib/cn";
 import { motion, AnimatePresence } from "framer-motion";
 
 const links = [
-  { href: "#about", label: "Summary" },
-  { href: "#experience", label: "Опыт работы" },
-  { href: "#skills", label: "Стек & Инструменты" },
-  { href: "#mindset", label: "Soft Skills" },
-  { href: "#results", label: "Результаты" },
-  { href: "#contact", label: "Контакты" },
+  { href: "#about", label: "Про мене" },
+  { href: "#experience", label: "Досвід роботи" },
+  { href: "#skills", label: "Стек & Інструменти" },
+  { href: "#mindset", label: "Підхід" },
+  { href: "#results", label: "Результати" },
+  { href: "#contact", label: "Контакти" },
 ];
 
 export function Header() {
@@ -50,56 +50,30 @@ export function Header() {
   }, []);
 
   return (
-    <header
-      className={cn(
-        "sticky top-0 z-30 transition",
-        scrolled ? "bg-black/55 backdrop-blur-xl" : "bg-transparent"
-      )}
-    >
+    <header className={cn("sticky top-0 z-30 transition", scrolled ? "bg-black/55 backdrop-blur-xl" : "bg-transparent")}>
       <div className="mx-auto flex h-[76px] w-[min(1200px,calc(100%-48px))] items-center justify-between gap-4">
         <a className="flex items-center gap-2.5" href="#top" aria-label="Media Buyer">
-          {/* Убрали рамку и фон */}
           <span className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl">
-            <img src="/logo.png" alt="Logo" className="h-full w-full object-cover" />
+            <img src="/logo.svg" alt="Logo" className="h-full w-full object-cover" />
           </span>
           <span className="text-[15px] font-semibold tracking-[-0.01em] text-white/90">
             Media Buyer
           </span>
         </a>
-
         <nav className="hidden items-center gap-8 md:flex">
           {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className={cn(
-                "group relative px-1 py-2 text-[14px] transition",
-                active === l.href ? "text-white/95" : "text-white/65 hover:text-white/95"
-              )}
-            >
+            <a key={l.href} href={l.href} className={cn("group relative px-1 py-2 text-[14px] transition", active === l.href ? "text-white/95" : "text-white/65 hover:text-white/95")}>
               {l.label}
-              <span
-                className={cn(
-                  "pointer-events-none absolute left-1 right-1 -bottom-[1px] h-[2px] origin-left rounded-full bg-accent/70 transition",
-                  active === l.href ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100"
-                )}
-              />
+              <span className={cn("pointer-events-none absolute left-1 right-1 -bottom-[1px] h-[2px] origin-left rounded-full bg-accent/70 transition", active === l.href ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100")} />
             </a>
           ))}
         </nav>
-
         <div className="hidden md:flex">
           <Button size="sm" href="#contact" className="px-5 py-2.5 text-[14px] btn-shine">
-            Связаться
+            Зв'язатися
           </Button>
         </div>
-
-        <button
-          className={cn("md:hidden grid h-10 w-10 place-items-center rounded-xl bg-white/[.04] shadow-deep")}
-          onClick={() => setOpen((v) => !v)}
-          aria-label="Открыть меню"
-          aria-expanded={open}
-        >
+        <button className="md:hidden grid h-10 w-10 place-items-center rounded-xl bg-white/[.04] shadow-deep" onClick={() => setOpen((v) => !v)}>
           <div className="flex flex-col gap-1">
             <span className="h-[2px] w-[18px] rounded-full bg-white/80" />
             <span className="h-[2px] w-[18px] rounded-full bg-white/80" />
@@ -107,31 +81,19 @@ export function Header() {
           </div>
         </button>
       </div>
-
       <AnimatePresence>
         {open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.25, ease: "easeOut" }}
-            className="md:hidden overflow-hidden bg-black/45"
-          >
+          <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.25, ease: "easeOut" }} className="md:hidden overflow-hidden bg-black/45">
             <div className="mx-auto w-[min(1200px,calc(100%-48px))] py-3">
               <div className="flex flex-col">
                 {links.map((l) => (
-                  <a
-                    key={l.href}
-                    href={l.href}
-                    className={cn("px-2 py-3 text-[15px]", active === l.href ? "text-white/95" : "text-white/80")}
-                    onClick={() => setOpen(false)}
-                  >
+                  <a key={l.href} href={l.href} className={cn("px-2 py-3 text-[15px]", active === l.href ? "text-white/95" : "text-white/80")} onClick={() => setOpen(false)}>
                     {l.label}
                   </a>
                 ))}
                 <div className="pt-2">
                   <Button size="sm" href="#contact" onClick={() => setOpen(false)} className="w-full justify-center btn-shine">
-                    Связаться
+                    Зв'язатися
                   </Button>
                 </div>
               </div>

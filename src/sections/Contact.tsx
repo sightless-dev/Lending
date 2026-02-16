@@ -8,19 +8,19 @@ export function Contact() {
         <Reveal>
           <div className="mx-auto mb-3 inline-flex w-fit items-center gap-2.5 rounded-full border border-accent/15 bg-accent/10 px-3.5 py-2 text-[14px] text-white/80 shadow-deep">
             <span className="h-2 w-2 rounded-full bg-accent shadow-[0_0_0_6px_rgba(25,247,176,.14)]" />
-            Открыт к предложениям
+            Відкритий до пропозицій
           </div>
         </Reveal>
 
         <Reveal delay={0.05}>
           <h2 className="mb-3 text-center text-[34px] font-extrabold tracking-[-0.03em]">
-            Давайте <span className="text-accent">работать вместе</span>
+            Давайте <span className="text-accent">працювати разом</span>
           </h2>
         </Reveal>
 
         <Reveal delay={0.1}>
           <p className="mx-auto mb-6 max-w-[720px] text-[18px] leading-[1.65] text-white/65">
-            Рассматриваю <strong>Remote / Full-time</strong>. Если вы ищете Junior Media Buyer или Buyer Helper — жду сообщения!
+            Розглядаю позицію Media Buyer (<strong>Remote / Full-time</strong>). Маю базу, розумію процеси, готовий брати об'єми — чекаю на повідомлення!
           </p>
         </Reveal>
 
