@@ -68,7 +68,7 @@ export function Header() {
   );
 
   return (
-    <header className={cn("sticky top-0 z-30 transition", scrolled ? "bg-black/55 backdrop-blur-xl" : "bg-transparent")}>
+    <header className={cn("fixed top-0 left-0 w-full z-50 transition-all duration-300", scrolled ? "bg-black/55 backdrop-blur-xl" : "bg-transparent")}>
       <div className="mx-auto flex h-[76px] w-[min(1200px,calc(100%-48px))] items-center justify-between gap-4">
         <a className="flex items-center gap-2.5" href="#top" aria-label="Media Buyer">
           <span className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl">

@@ -1,4 +1,9 @@
-import { Reveal } from "../components/Reveal";
+import fs from 'fs';
+import path from 'path';
+
+const heroPath = path.resolve('src/sections/Hero.tsx');
+
+const content = `import { Reveal } from "../components/Reveal";
 import { Button } from "../components/ui/Button";
 import { motion } from "framer-motion";
 import { useLang } from "../context/LanguageContext";
@@ -140,4 +145,11 @@ export function Hero() {
       </div>
     </section>
   );
+}`;
+
+if (fs.existsSync(heroPath)) {
+  fs.writeFileSync(heroPath, content.trim(), 'utf8');
+  console.log('✅ Файл src/sections/Hero.tsx успешно обновлен!');
+} else {
+  console.log('⚠️ Файл src/sections/Hero.tsx не найден.');
 }

@@ -15,7 +15,7 @@ export default function App() {
   const { lang } = useLang();
 
   return (
-    <div className="relative min-h-screen overflow-hidden text-white selection:bg-accent/30 selection:text-accent">
+    <div className="relative min-h-screen overflow-clip text-white selection:bg-accent/30 selection:text-accent">
       <GlowBackground />
       <Header />
       <AnimatePresence mode="wait">
