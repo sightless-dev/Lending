@@ -2,20 +2,31 @@ import * as React from "react";
 import { Button } from "./ui/Button";
 import { cn } from "../lib/cn";
 import { motion, AnimatePresence } from "framer-motion";
-
-const links = [
-  { href: "#about", label: "Про мене" },
-  { href: "#experience", label: "Досвід роботи" },
-  { href: "#skills", label: "Стек & Інструменти" },
-  { href: "#mindset", label: "Підхід" },
-  { href: "#results", label: "Результати" },
-  { href: "#contact", label: "Контакти" },
-];
+import { useLang } from "../context/LanguageContext";
 
 export function Header() {
   const [open, setOpen] = React.useState(false);
   const [scrolled, setScrolled] = React.useState(false);
   const [active, setActive] = React.useState<string>("#top");
+  const { lang, setLang } = useLang();
+
+  const t = {
+    ua: {
+      about: "Про мене", exp: "Досвід роботи", skills: "Стек & Інструменти", mindset: "Підхід", results: "Результати", contact: "Контакти", btn: "Зв'язатися"
+    },
+    ru: {
+      about: "Обо мне", exp: "Опыт работы", skills: "Стек & Инструменты", mindset: "Подход", results: "Результаты", contact: "Контакты", btn: "Связаться"
+    }
+  }[lang];
+
+  const links = [
+    { href: "#about", label: t.about },
+    { href: "#experience", label: t.exp },
+    { href: "#skills", label: t.skills },
+    { href: "#mindset", label: t.mindset },
+    { href: "#results", label: t.results },
+    { href: "#contact", label: t.contact },
+  ];
 
   React.useEffect(() => {
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
@@ -49,6 +60,13 @@ export function Header() {
     return () => obs.disconnect();
   }, []);
 
+  const LangSwitcher = () => (
+    <div className="flex items-center gap-1 rounded-lg border border-white/10 bg-white/[.04] p-1 shadow-deep">
+      <button onClick={() => setLang('ua')} className={cn("px-2 py-1 text-[12px] font-bold rounded-md transition", lang === 'ua' ? "bg-accent/20 text-accent" : "text-white/40 hover:text-white/90")}>UA</button>
+      <button onClick={() => setLang('ru')} className={cn("px-2 py-1 text-[12px] font-bold rounded-md transition", lang === 'ru' ? "bg-accent/20 text-accent" : "text-white/40 hover:text-white/90")}>RU</button>
+    </div>
+  );
+
   return (
     <header className={cn("sticky top-0 z-30 transition", scrolled ? "bg-black/55 backdrop-blur-xl" : "bg-transparent")}>
       <div className="mx-auto flex h-[76px] w-[min(1200px,calc(100%-48px))] items-center justify-between gap-4">
@@ -68,18 +86,22 @@ export function Header() {
             </a>
           ))}
         </nav>
-        <div className="hidden md:flex">
+        <div className="hidden md:flex items-center gap-4">
+          <LangSwitcher />
           <Button size="sm" href="#contact" className="px-5 py-2.5 text-[14px] btn-shine">
-            Зв'язатися
+            {t.btn}
           </Button>
         </div>
-        <button className="md:hidden grid h-10 w-10 place-items-center rounded-xl bg-white/[.04] shadow-deep" onClick={() => setOpen((v) => !v)}>
-          <div className="flex flex-col gap-1">
-            <span className="h-[2px] w-[18px] rounded-full bg-white/80" />
-            <span className="h-[2px] w-[18px] rounded-full bg-white/80" />
-            <span className="h-[2px] w-[18px] rounded-full bg-white/80" />
-          </div>
-        </button>
+        <div className="flex items-center gap-3 md:hidden">
+          <LangSwitcher />
+          <button className="grid h-10 w-10 place-items-center rounded-xl bg-white/[.04] shadow-deep" onClick={() => setOpen((v) => !v)}>
+            <div className="flex flex-col gap-1">
+              <span className="h-[2px] w-[18px] rounded-full bg-white/80" />
+              <span className="h-[2px] w-[18px] rounded-full bg-white/80" />
+              <span className="h-[2px] w-[18px] rounded-full bg-white/80" />
+            </div>
+          </button>
+        </div>
       </div>
       <AnimatePresence>
         {open && (
@@ -93,7 +115,7 @@ export function Header() {
                 ))}
                 <div className="pt-2">
                   <Button size="sm" href="#contact" onClick={() => setOpen(false)} className="w-full justify-center btn-shine">
-                    Зв'язатися
+                    {t.btn}
                   </Button>
                 </div>
               </div>

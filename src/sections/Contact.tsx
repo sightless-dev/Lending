@@ -1,26 +1,42 @@
 import { Reveal } from "../components/Reveal";
 import { Button } from "../components/ui/Button";
+import { useLang } from "../context/LanguageContext";
 
 export function Contact() {
+  const { lang } = useLang();
+
+  const c = {
+    ua: {
+      badge: "Відкритий до пропозицій",
+      titlePart1: "Давайте", titlePart2: "працювати разом",
+      desc: <>Розглядаю позицію Media Buyer (<strong>Remote / Full-time</strong>). Маю базу, розумію процеси, готовий брати об'єми — чекаю на повідомлення!</>
+    },
+    ru: {
+      badge: "Открыт к предложениям",
+      titlePart1: "Давайте", titlePart2: "работать вместе",
+      desc: <>Рассматриваю позицию Media Buyer (<strong>Remote / Full-time</strong>). Есть база, понимаю процессы, готов брать объемы — жду сообщения!</>
+    }
+  }[lang];
+
   return (
     <section id="contact" className="py-[96px] pb-[104px] max-md:py-[78px]">
       <div className="mx-auto w-[min(1200px,calc(100%-48px))] text-center">
         <Reveal>
           <div className="mx-auto mb-3 inline-flex w-fit items-center gap-2.5 rounded-full border border-accent/15 bg-accent/10 px-3.5 py-2 text-[14px] text-white/80 shadow-deep">
             <span className="h-2 w-2 rounded-full bg-accent shadow-[0_0_0_6px_rgba(25,247,176,.14)]" />
-            Відкритий до пропозицій
+            {c.badge}
           </div>
         </Reveal>
 
         <Reveal delay={0.05}>
           <h2 className="mb-3 text-center text-[34px] font-extrabold tracking-[-0.03em]">
-            Давайте <span className="text-accent">працювати разом</span>
+            {c.titlePart1} <span className="text-accent">{c.titlePart2}</span>
           </h2>
         </Reveal>
 
         <Reveal delay={0.1}>
           <p className="mx-auto mb-6 max-w-[720px] text-[18px] leading-[1.65] text-white/65">
-            Розглядаю позицію Media Buyer (<strong>Remote / Full-time</strong>). Маю базу, розумію процеси, готовий брати об'єми — чекаю на повідомлення!
+            {c.desc}
           </p>
         </Reveal>
 

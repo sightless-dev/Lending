@@ -22,16 +22,20 @@ export default {
       },
       keyframes: {
         glow1: {
-          "0%,100%": { opacity: "0.22", transform: "translate(-10px,-6px) scale(.98)" },
-          "50%": { opacity: "0.46", transform: "translate(14px,10px) scale(1.04)" },
+          "0%,100%": { opacity: "0.5", transform: "translate(-10px,-6px) scale(.98)" },
+          "50%": { opacity: "0.85", transform: "translate(14px,10px) scale(1.04)" },
         },
         glow2: {
-          "0%,100%": { opacity: "0.18", transform: "translate(8px,-6px) scale(.99)" },
-          "50%": { opacity: "0.38", transform: "translate(-16px,10px) scale(1.05)" },
+          "0%,100%": { opacity: "0.45", transform: "translate(8px,-6px) scale(.99)" },
+          "50%": { opacity: "0.8", transform: "translate(-16px,10px) scale(1.05)" },
         },
         glow3: {
-          "0%,100%": { opacity: "0.16", transform: "translate(0px,0px) scale(.97)" },
-          "50%": { opacity: "0.34", transform: "translate(0px,-18px) scale(1.06)" },
+          "0%,100%": { opacity: "0.4", transform: "translate(0px,0px) scale(.97)" },
+          "50%": { opacity: "0.75", transform: "translate(0px,-18px) scale(1.06)" },
+        },
+        glow4: {
+          "0%,100%": { opacity: "0.4", transform: "translate(-10px,10px) scale(.95)" },
+          "50%": { opacity: "0.75", transform: "translate(10px,-10px) scale(1.05)" },
         },
         wheel: {
           "0%,100%": { opacity: "0.2", transform: "translate(-50%,0)" },
@@ -39,9 +43,10 @@ export default {
         },
       },
       animation: {
-        glow1: "glow1 7.6s ease-in-out infinite",
-        glow2: "glow2 9.2s ease-in-out infinite",
-        glow3: "glow3 10.5s ease-in-out infinite",
+        glow1: "glow1 4.5s ease-in-out infinite",
+        glow2: "glow2 5.2s ease-in-out infinite",
+        glow3: "glow3 6.5s ease-in-out infinite",
+        glow4: "glow4 4.8s ease-in-out infinite",
         wheel: "wheel 1.6s ease-in-out infinite",
       },
     },

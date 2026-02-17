@@ -1,4 +1,9 @@
-import * as React from "react";
+import fs from 'fs';
+import path from 'path';
+
+const backgroundPath = path.resolve('src/components/GlowBackground.tsx');
+
+const content = `import * as React from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
 export function GlowBackground() {
@@ -33,14 +38,21 @@ export function GlowBackground() {
         style={{ x: sx, y: sy }}
         className="absolute inset-0"
       >
-        <div className={`${greenBlob} left-[-220px] top-[-260px] h-[720px] w-[720px] animate-glow1`} />
-        <div className={`${purpleBlob} right-[-200px] top-[50px] h-[640px] w-[640px] animate-glow2`} />
-        <div className={`${greenBlob} left-[35%] bottom-[-420px] h-[820px] w-[820px] animate-glow3`} />
-        <div className={`${purpleBlob} left-[-150px] bottom-[150px] h-[550px] w-[550px] animate-glow4`} />
+        <div className={\`\${greenBlob} left-[-220px] top-[-260px] h-[720px] w-[720px] animate-glow1\`} />
+        <div className={\`\${purpleBlob} right-[-200px] top-[50px] h-[640px] w-[640px] animate-glow2\`} />
+        <div className={\`\${greenBlob} left-[35%] bottom-[-420px] h-[820px] w-[820px] animate-glow3\`} />
+        <div className={\`\${purpleBlob} left-[-150px] bottom-[150px] h-[550px] w-[550px] animate-glow4\`} />
       </motion.div>
 
       <div className="noise absolute inset-0" />
       <div className="vignette absolute -inset-px" />
     </div>
   );
+}`;
+
+if (fs.existsSync(backgroundPath)) {
+  fs.writeFileSync(backgroundPath, content.trim(), 'utf8');
+  console.log('✅ Цвет свечения успешно изменен на глубокий фиолетовый!');
+} else {
+  console.log('⚠️ Файл src/components/GlowBackground.tsx не найден.');
 }

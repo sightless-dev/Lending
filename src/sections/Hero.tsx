@@ -1,6 +1,7 @@
 import { Reveal } from "../components/Reveal";
 import { Button } from "../components/ui/Button";
 import { motion } from "framer-motion";
+import { useLang } from "../context/LanguageContext";
 
 const floatingEmojis = [
   { e: "🎰", left: "10%", top: "20%", delay: 0 },
@@ -12,17 +13,44 @@ const floatingEmojis = [
 ];
 
 export function Hero() {
+  const { lang } = useLang();
+
+  const content = {
+    ua: {
+      badge: "Розглядаю позицію Junior Media Buyer",
+      t1: "Досвід Meta Ads",
+      t2: "Remote / Full-time",
+      t3: "Timezone: UA",
+      desc: <>4 роки в індустрії: 2 роки бекграунду в дизайні креативів та 2 роки баїнгу (Meta Ads). <strong>Вмію працювати з реальними бюджетами</strong>, розумію алгоритми FB і знаю, як контролювати метрики для виходу на стабільний плюсовий ROI.</>,
+      btnTG: "Написати в Telegram",
+      btnExp: "Досвід роботи",
+      stats: [
+        ["$20K+", "Досвід спенду/міс"],
+        ["0-40%", "Середній ROI"],
+        ["GEO", "Досвід з Tier 1-3"],
+      ]
+    },
+    ru: {
+      badge: "Рассматриваю позицию Junior Media Buyer",
+      t1: "Опыт Meta Ads",
+      t2: "Remote / Full-time",
+      t3: "Timezone: UA",
+      desc: <>4 года в индустрии: 2 года бэкграунда в дизайне креативов и 2 года баинга (Meta Ads). <strong>Умею работать с реальными бюджетами</strong>, понимаю алгоритмы FB и знаю, как контролировать метрики для выхода на стабильный плюсовой ROI.</>,
+      btnTG: "Написать в Telegram",
+      btnExp: "Опыт работы",
+      stats: [
+        ["$20K+", "Опыт спенда/мес"],
+        ["0-40%", "Средний ROI"],
+        ["GEO", "Опыт с Tier 1-3"],
+      ]
+    }
+  }[lang];
+
   return (
     <section id="top" className="relative min-h-[calc(100vh-68px)] py-[104px] max-md:py-[84px] flex items-center overflow-hidden">
       <div className="absolute inset-0 pointer-events-none z-0 hidden md:block">
         {floatingEmojis.map((item, i) => (
-          <motion.div
-            key={i}
-            className="absolute text-5xl opacity-20 blur-[2px]"
-            style={{ left: item.left, top: item.top }}
-            animate={{ y: [0, -25, 0], rotate: [0, 15, -15, 0] }}
-            transition={{ duration: 6, repeat: Infinity, delay: item.delay, ease: "easeInOut" }}
-          >
+          <motion.div key={i} className="absolute text-5xl opacity-20 blur-[2px]" style={{ left: item.left, top: item.top }} animate={{ y: [0, -25, 0], rotate: [0, 15, -15, 0] }} transition={{ duration: 6, repeat: Infinity, delay: item.delay, ease: "easeInOut" }}>
             {item.e}
           </motion.div>
         ))}
@@ -35,7 +63,7 @@ export function Hero() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75"></span>
               <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-accent shadow-[0_0_8px_rgba(25,247,176,.8)]"></span>
             </span>
-            Розглядаю позицію Junior Media Buyer
+            {content.badge}
           </div>
         </Reveal>
 
@@ -53,9 +81,9 @@ export function Hero() {
         <Reveal delay={0.1}>
           <div className="mt-6 flex flex-wrap justify-center gap-3 text-[14px] text-white/80">
             {[
-              { ic: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>, t: "Досвід Meta Ads" },
-              { ic: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>, t: "Remote / Full-time" },
-              { ic: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>, t: "Timezone: UA" },
+              { ic: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>, t: content.t1 },
+              { ic: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>, t: content.t2 },
+              { ic: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>, t: content.t3 },
             ].map(({ic, t}) => (
               <span key={t} className="flex items-center gap-2 rounded-full border border-white/10 bg-white/[.04] px-4 py-2.5">
                 <span className="text-accent/90">{ic}</span>{t}
@@ -66,7 +94,7 @@ export function Hero() {
 
         <Reveal delay={0.14}>
           <p className="mx-auto mt-6 max-w-[920px] text-[18px] leading-[1.7] text-white/65">
-            4 роки в індустрії: 2 роки бекграунду в дизайні креативів та 2 роки баїнгу (Meta Ads). <strong>Вмію працювати з реальними бюджетами</strong>, розумію алгоритми FB і знаю, як контролювати метрики для виходу на стабільний плюсовий ROI.
+            {content.desc}
           </p>
         </Reveal>
 
@@ -76,21 +104,17 @@ export function Hero() {
               <span className="grid place-items-center text-[#04110b]" aria-hidden="true">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21.8 4.6 2.9 11.9c-1.3.5-1.3 1.2-.2 1.6l4.8 1.5 1.8 5.6c.2.6.1.9.8.9.5 0 .8-.2 1.2-.6l2.3-2.2 4.7 3.5c.9.5 1.5.2 1.7-.8l3.2-15.1c.3-1.2-.5-1.7-1.4-1.3Z" fill="currentColor"/></svg>
               </span>
-              Написати в Telegram
+              {content.btnTG}
             </Button>
             <Button variant="ghost" href="#experience">
-              Досвід роботи
+              {content.btnExp}
             </Button>
           </div>
         </Reveal>
 
         <Reveal delay={0.22}>
           <div className="mt-10 flex flex-wrap justify-center gap-5 pt-2">
-            {[
-              ["$20K+", "Досвід спенду/міс"],
-              ["0-40%", "Середній ROI"],
-              ["GEO", "Досвід з Tier 1-3"],
-            ].map(([v, l]) => (
+            {content.stats.map(([v, l]) => (
               <div key={l} className="min-w-[220px] rounded-2xl border border-white/10 bg-white/[.03] px-4 py-3.5 shadow-[0_18px_70px_rgba(0,0,0,.30)]">
                 <div className="text-[20px] font-extrabold tracking-[-0.02em] text-accent/90">{v}</div>
                 <div className="mt-1 text-[13px] text-white/55">{l}</div>
