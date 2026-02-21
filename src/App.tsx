@@ -3,8 +3,6 @@ import { Hero } from "./sections/Hero";
 import { About } from "./sections/About";
 import { Experience } from "./sections/Experience";
 import { Skills } from "./sections/Skills";
-import { Mindset } from "./sections/Mindset";
-import { Results } from "./sections/Results";
 import { Contact } from "./sections/Contact";
 import { Footer } from "./components/Footer";
 import { GlowBackground } from "./components/GlowBackground";
@@ -31,8 +29,6 @@ export default function App() {
           <About />
           <Experience />
           <Skills />
-          <Mindset />
-          <Results />
           <Contact />
         </motion.main>
       </AnimatePresence>

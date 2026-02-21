@@ -11,28 +11,16 @@ export function Header() {
   const { lang, setLang } = useLang();
 
   const t = {
-    ua: {
-      about: "Про мене", exp: "Досвід роботи", skills: "Стек & Інструменти", mindset: "Підхід", results: "Результати", contact: "Контакти", btn: "Зв'язатися"
-    },
-    ru: {
-      about: "Обо мне", exp: "Опыт работы", skills: "Стек & Инструменты", mindset: "Подход", results: "Результаты", contact: "Контакты", btn: "Связаться"
-    }
+    ua: { about: "Про мене", exp: "Досвід", skills: "Стек", contact: "Контакти", btn: "Зв'язатися" },
+    ru: { about: "Обо мне", exp: "Опыт", skills: "Стек", contact: "Контакты", btn: "Связаться" }
   }[lang];
 
   const links = [
     { href: "#about", label: t.about },
     { href: "#experience", label: t.exp },
     { href: "#skills", label: t.skills },
-    { href: "#mindset", label: t.mindset },
-    { href: "#results", label: t.results },
     { href: "#contact", label: t.contact },
   ];
-
-  React.useEffect(() => {
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, []);
 
   React.useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -42,7 +30,7 @@ export function Header() {
   }, []);
 
   React.useEffect(() => {
-    const ids = ["top", "about", "experience", "skills", "mindset", "results", "contact"];
+    const ids = ["top", "about", "experience", "skills", "contact"];
     const els = ids.map((id) => document.getElementById(id)).filter(Boolean) as HTMLElement[];
     if (!els.length) return;
 
@@ -53,7 +41,7 @@ export function Header() {
           .sort((a, b) => (b.intersectionRatio ?? 0) - (a.intersectionRatio ?? 0))[0];
         if (visible?.target?.id) setActive("#" + visible.target.id);
       },
-      { threshold: [0.2, 0.35, 0.5, 0.65], rootMargin: "-20% 0px -55% 0px" }
+      { threshold: [0.2, 0.5], rootMargin: "-20% 0px -55% 0px" }
     );
 
     els.forEach((el) => obs.observe(el));
@@ -69,8 +57,8 @@ export function Header() {
 
   return (
     <header className={cn("fixed top-0 left-0 w-full z-50 transition-all duration-300", scrolled ? "bg-black/55 backdrop-blur-xl" : "bg-transparent")}>
-      <div className="mx-auto flex h-[76px] w-[min(1200px,calc(100%-48px))] items-center justify-between gap-4">
-        <a className="flex items-center gap-2.5" href="#top" aria-label="Media Buyer">
+      <div className="mx-auto flex h-[76px] w-[min(1200px,calc(100%-48px))] items-center justify-between relative">
+        <a className="flex items-center gap-2.5 relative z-10" href="#top" aria-label="Media Buyer">
           <span className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl">
             <img src="/logo.png" alt="Logo" className="h-full w-full object-cover" />
           </span>
@@ -78,7 +66,9 @@ export function Header() {
             Media Buyer
           </span>
         </a>
-        <nav className="hidden items-center gap-8 md:flex">
+        
+        {/* АБСОЛЮТНОЕ ПОЗИЦИОНИРОВАНИЕ ДЛЯ ИДЕАЛЬНОГО ЦЕНТРА */}
+        <nav className="hidden items-center gap-8 md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
           {links.map((l) => (
             <a key={l.href} href={l.href} className={cn("group relative px-1 py-2 text-[14px] transition", active === l.href ? "text-white/95" : "text-white/65 hover:text-white/95")}>
               {l.label}
@@ -86,43 +76,14 @@ export function Header() {
             </a>
           ))}
         </nav>
-        <div className="hidden md:flex items-center gap-4">
+
+        <div className="hidden md:flex items-center gap-4 relative z-10">
           <LangSwitcher />
           <Button size="sm" href="#contact" className="px-5 py-2.5 text-[14px] btn-shine">
             {t.btn}
           </Button>
         </div>
-        <div className="flex items-center gap-3 md:hidden">
-          <LangSwitcher />
-          <button className="grid h-10 w-10 place-items-center rounded-xl bg-white/[.04] shadow-deep" onClick={() => setOpen((v) => !v)}>
-            <div className="flex flex-col gap-1">
-              <span className="h-[2px] w-[18px] rounded-full bg-white/80" />
-              <span className="h-[2px] w-[18px] rounded-full bg-white/80" />
-              <span className="h-[2px] w-[18px] rounded-full bg-white/80" />
-            </div>
-          </button>
-        </div>
       </div>
-      <AnimatePresence>
-        {open && (
-          <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.25, ease: "easeOut" }} className="md:hidden overflow-hidden bg-black/45">
-            <div className="mx-auto w-[min(1200px,calc(100%-48px))] py-3">
-              <div className="flex flex-col">
-                {links.map((l) => (
-                  <a key={l.href} href={l.href} className={cn("px-2 py-3 text-[15px]", active === l.href ? "text-white/95" : "text-white/80")} onClick={() => setOpen(false)}>
-                    {l.label}
-                  </a>
-                ))}
-                <div className="pt-2">
-                  <Button size="sm" href="#contact" onClick={() => setOpen(false)} className="w-full justify-center btn-shine">
-                    {t.btn}
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </header>
   );
 }

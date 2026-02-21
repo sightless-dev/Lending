@@ -1,4 +1,9 @@
-import { Reveal } from "../components/Reveal";
+import fs from 'fs';
+import path from 'path';
+
+const expPath = path.resolve('src/sections/Experience.tsx');
+
+const content = `import { Reveal } from "../components/Reveal";
 import { Card } from "../components/ui/Card";
 import { useLang } from "../context/LanguageContext";
 
@@ -63,4 +68,11 @@ export function Experience() {
       </div>
     </section>
   );
+}`;
+
+if (fs.existsSync(expPath)) {
+  fs.writeFileSync(expPath, content.trim(), 'utf8');
+  console.log('✅ Даты и названия должностей в src/sections/Experience.tsx успешно обновлены!');
+} else {
+  console.log('⚠️ Файл src/sections/Experience.tsx не найден.');
 }

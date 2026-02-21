@@ -12,7 +12,7 @@ export function Skills() {
         { title: "Meta Ads & Інфраструктура", desc: "Робота з FB Ads Manager. Використання автозаливів. Робота з агентськими кабінетами, трастами та сетапами.", tone: "accent" },
         { title: "Antidetect Browsers", desc: "Щільний досвід роботи з антиками для мультиакаунтингу: AdsPower, Dolphin, OctoBrowser.", tone: "accent" },
         { title: "Трекінг & Аналітика", desc: "Впевнене володіння Keitaro (потоки, фільтрація). Аналіз трафіку за метриками: CTR, CPM, Inst2Dep, FTD.", tone: "accent" },
-        { title: "Додатковий стек", desc: "Spy-сервіси, базове розуміння прилок (PWA/Webview).", tone: "purple" },
+        { title: "Додатковий стек", desc: "Вмію працювати з PWA/Webview (SkakApp, BlackApp і т.д.), Spy-сервіси.", tone: "purple" },
       ]
     },
     ru: {
@@ -21,7 +21,7 @@ export function Skills() {
         { title: "Meta Ads & Инфраструктура", desc: "Работа с FB Ads Manager. Использование автозаливов. Работа с агентскими кабинетами, трастами и сетапами.", tone: "accent" },
         { title: "Antidetect Browsers", desc: "Плотный опыт работы с антиками для мультиаккаунтинга: AdsPower, Dolphin, OctoBrowser.", tone: "accent" },
         { title: "Трекинг & Аналитика", desc: "Уверенное владение Keitaro (потоки, фильтрация). Анализ трафика по метрикам: CTR, CPM, Inst2Dep, FTD.", tone: "accent" },
-        { title: "Дополнительный стек", desc: "Spy-сервисы, базовое понимание прилок (PWA/Webview).", tone: "purple" },
+        { title: "Дополнительный стек", desc: "Умею работать с PWA/Webview (SkakApp, BlackApp и т.д.), Spy-сервисы.", tone: "purple" },
       ]
     }
   }[lang];
@@ -34,10 +34,10 @@ export function Skills() {
   ];
 
   return (
-    <section id="skills" className="py-[96px] max-md:py-[78px]">
+    <section id="skills" className="py-[80px]">
       <div className="mx-auto w-[min(1200px,calc(100%-48px))]">
         <Reveal>
-          <h2 className="mb-7 text-center text-[40px] max-md:text-[34px] font-bold tracking-[-0.02em]">
+          <h2 className="mb-7 text-center text-[36px] max-md:text-[30px] font-bold tracking-[-0.02em]">
             {content.titlePart1} <span className="text-accent">{content.titlePart2}</span>
           </h2>
         </Reveal>
@@ -52,7 +52,7 @@ export function Skills() {
                   </div>
                   <div className="text-[18px] font-extrabold tracking-[-0.02em]">{t.title}</div>
                 </div>
-                <div className="text-[16px] leading-[1.55] text-white/65" dangerouslySetInnerHTML={{ __html: t.desc.replace(/(FB Ads Manager|AdsPower|Dolphin|OctoBrowser|Keitaro|CTR|CPM|Inst2Dep|FTD)/g, '<strong>$1</strong>') }} />
+                <div className="text-[16px] leading-[1.55] text-white/65" dangerouslySetInnerHTML={{ __html: t.desc.replace(/(FB Ads Manager|AdsPower|Dolphin|OctoBrowser|Keitaro|CTR|CPM|Inst2Dep|FTD|PWA\/Webview)/g, '<strong>$1</strong>') }} />
               </Card>
             </Reveal>
           ))}

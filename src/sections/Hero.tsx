@@ -22,12 +22,10 @@ export function Hero() {
       t2: "Remote / Full-time",
       t3: "Timezone: UA",
       desc: <>4 роки в індустрії: 2 роки бекграунду в дизайні креативів та 2 роки баїнгу (Meta Ads). <strong>Вмію працювати з реальними бюджетами</strong>, розумію алгоритми FB і знаю, як контролювати метрики для виходу на стабільний плюсовий ROI.</>,
-      btnTG: "Написати в Telegram",
-      btnExp: "Досвід роботи",
       stats: [
         ["$20K+", "Досвід спенду/міс"],
         ["0-40%", "Середній ROI"],
-        ["GEO", "Досвід з Tier 1-3"],
+        ["GEO", "Tier 1-3"],
       ]
     },
     ru: {
@@ -36,12 +34,10 @@ export function Hero() {
       t2: "Remote / Full-time",
       t3: "Timezone: UA",
       desc: <>4 года в индустрии: 2 года бэкграунда в дизайне креативов и 2 года баинга (Meta Ads). <strong>Умею работать с реальными бюджетами</strong>, понимаю алгоритмы FB и знаю, как контролировать метрики для выхода на стабильный плюсовой ROI.</>,
-      btnTG: "Написать в Telegram",
-      btnExp: "Опыт работы",
       stats: [
         ["$20K+", "Опыт спенда/мес"],
         ["0-40%", "Средний ROI"],
-        ["GEO", "Опыт с Tier 1-3"],
+        ["GEO", "Tier 1-3"],
       ]
     }
   }[lang];
@@ -72,8 +68,7 @@ export function Hero() {
             <span className="block text-[clamp(44px,7vw,76px)] font-black tracking-[-0.05em] text-white/95">
               Media Buyer
             </span>
-            {/* ИСПРАВЛЕН БАГ: добавили pb-3, чтобы "g" не обрезалась градиентом */}
-            <span className="mt-1 block pb-3 text-[clamp(38px,6vw,68px)] font-black tracking-[-0.05em] text-transparent bg-clip-text bg-gradient-to-r from-accent via-purple-400 to-accent2 leading-[1.2]">
+            <span className="mt-1 block pb-4 text-[clamp(38px,6vw,68px)] font-black tracking-[-0.05em] text-transparent bg-clip-text bg-gradient-to-r from-accent via-purple-400 to-accent2 leading-[1.2]">
               Gambling & Betting
             </span>
           </h1>
@@ -81,42 +76,44 @@ export function Hero() {
 
         <Reveal delay={0.1}>
           <div className="mt-6 flex flex-wrap justify-center gap-3 text-[14px] text-white/80">
-            {[
-              { ic: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>, t: content.t1 },
-              { ic: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>, t: content.t2 },
-              { ic: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>, t: content.t3 },
-            ].map(({ic, t}) => (
-              <span key={t} className="flex items-center gap-2 rounded-full border border-white/10 bg-white/[.04] px-4 py-2.5">
-                <span className="text-accent/90">{ic}</span>{t}
-              </span>
-            ))}
+            <span className="flex items-center gap-2 rounded-full border border-white/10 bg-white/[.04] px-4 py-2.5">
+              <span className="text-accent/90"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>{content.t1}
+            </span>
+            <span className="flex items-center gap-2 rounded-full border border-white/10 bg-white/[.04] px-4 py-2.5">
+              <span className="text-accent/90"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>{content.t2}
+            </span>
+            <span className="flex items-center gap-2 rounded-full border border-white/10 bg-white/[.04] px-4 py-2.5">
+              <span className="text-accent/90"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>{content.t3}
+            </span>
           </div>
         </Reveal>
 
         <Reveal delay={0.14}>
-          <p className="mx-auto mt-6 max-w-[920px] text-[18px] leading-[1.7] text-white/65">
+          <p className="mx-auto mt-6 max-w-[800px] text-[18px] leading-[1.7] text-white/65">
             {content.desc}
           </p>
         </Reveal>
 
         <Reveal delay={0.18}>
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <Button className="btn-shine" href="https://t.me/whyrataff" target="_blank" rel="noopener">
-              <span className="grid place-items-center text-[#04110b]" aria-hidden="true">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+            <Button className="btn-shine flex !h-[46px] items-center px-7 text-[15px] !leading-[0]" href="https://t.me/whyrataff" target="_blank" rel="noopener">
+              <span className="mr-2 grid place-items-center text-[#04110b]" aria-hidden="true">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21.8 4.6 2.9 11.9c-1.3.5-1.3 1.2-.2 1.6l4.8 1.5 1.8 5.6c.2.6.1.9.8.9.5 0 .8-.2 1.2-.6l2.3-2.2 4.7 3.5c.9.5 1.5.2 1.7-.8l3.2-15.1c.3-1.2-.5-1.7-1.4-1.3Z" fill="currentColor"/></svg>
               </span>
-              {content.btnTG}
+              <span>Telegram</span>
             </Button>
-            <Button variant="ghost" href="#experience">
-              {content.btnExp}
-            </Button>
+            
+            <a href="https://www.linkedin.com/in/liubomyr-myshchenko-93413a3b2/" target="_blank" rel="noopener" className="group flex h-[46px] items-center justify-center rounded-full border border-[#0A66C2]/40 bg-[#0A66C2]/10 px-7 text-[15px] font-semibold text-white transition-all hover:bg-[#0A66C2]/20 hover:shadow-[0_0_20px_rgba(10,102,194,0.3)]">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" className="mr-2 text-[#0A66C2]"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              <span>LinkedIn</span>
+            </a>
           </div>
         </Reveal>
 
         <Reveal delay={0.22}>
           <div className="mt-10 flex flex-wrap justify-center gap-5 pt-2">
             {content.stats.map(([v, l]) => (
-              <div key={l} className="min-w-[220px] rounded-2xl border border-white/10 bg-white/[.03] px-4 py-3.5 shadow-[0_18px_70px_rgba(0,0,0,.30)]">
+              <div key={l} className="min-w-[200px] rounded-2xl border border-white/10 bg-white/[.03] px-4 py-3.5 shadow-[0_18px_70px_rgba(0,0,0,.30)]">
                 <div className="text-[20px] font-extrabold tracking-[-0.02em] text-accent/90">{v}</div>
                 <div className="mt-1 text-[13px] text-white/55">{l}</div>
               </div>
@@ -124,7 +121,7 @@ export function Hero() {
           </div>
         </Reveal>
 
-        <div className="mt-9 flex justify-center opacity-80">
+        <div className="mt-10 flex justify-center opacity-80">
           <div className="relative h-7 w-[18px] rounded-full border border-white/20">
             <div className="absolute left-1/2 top-1.5 h-1.5 w-[3px] -translate-x-1/2 rounded-full bg-accent/90 animate-wheel" />
           </div>
