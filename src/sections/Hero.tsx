@@ -17,7 +17,7 @@ export function Hero() {
 
   const content = {
     ua: {
-      badge: "Розглядаю позицію Middle Media Buyer",
+      badge: "Розглядаю позицію Media Buyer",
       t1: "Досвід Meta Ads",
       t2: "Remote / Full-time",
       t3: "Timezone: UA",
@@ -29,7 +29,7 @@ export function Hero() {
       ]
     },
     ru: {
-      badge: "Рассматриваю позицию Middle Media Buyer",
+      badge: "Рассматриваю позицию Media Buyer",
       t1: "Опыт Meta Ads",
       t2: "Remote / Full-time",
       t3: "Timezone: UA",

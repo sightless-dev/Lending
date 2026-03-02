@@ -4,8 +4,8 @@ import path from 'path';
 const heroPath = path.resolve('src/sections/Hero.tsx');
 if (fs.existsSync(heroPath)) {
   let heroContent = fs.readFileSync(heroPath, 'utf8');
-  heroContent = heroContent.replace('Розглядаю позицію Junior Media Buyer', 'Розглядаю позицію Middle Media Buyer');
-  heroContent = heroContent.replace('Рассматриваю позицию Junior Media Buyer', 'Рассматриваю позицию Middle Media Buyer');
+  heroContent = heroContent.replace('Розглядаю позицію Middle Media Buyer', 'Розглядаю позицію Media Buyer');
+  heroContent = heroContent.replace('Рассматриваю позицию Middle Media Buyer', 'Рассматриваю позицию Media Buyer');
   fs.writeFileSync(heroPath, heroContent, 'utf8');
   console.log('✅ Файл Hero.tsx успешно обновлен (Junior -> Middle)');
 } else {
@@ -15,7 +15,7 @@ if (fs.existsSync(heroPath)) {
 const expPath = path.resolve('src/sections/Experience.tsx');
 if (fs.existsSync(expPath)) {
   let expContent = fs.readFileSync(expPath, 'utf8');
-  expContent = expContent.replace('Junior Media Buyer • Gambling & Betting', 'Middle Media Buyer • Gambling & Betting');
+  expContent = expContent.replace('Middle Media Buyer • Gambling & Betting', 'Media Buyer • Gambling & Betting');
   fs.writeFileSync(expPath, expContent, 'utf8');
   console.log('✅ Файл Experience.tsx успешно обновлен (Junior -> Middle)');
 } else {

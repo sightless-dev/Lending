@@ -35,7 +35,7 @@ export function Experience() {
           <Reveal delay={0.05}>
             <Card className="p-7">
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-4">
-                <div className="text-[20px] font-extrabold tracking-[-0.02em]">Middle Media Buyer • Gambling & Betting</div>
+                <div className="text-[20px] font-extrabold tracking-[-0.02em]">Media Buyer • Gambling & Betting</div>
                 <div className="w-fit rounded-full border border-accent/20 bg-accent/10 px-4 py-1.5 text-[13px] font-medium text-accent/90 whitespace-nowrap">
                   {c.c1Exp}
                 </div>
