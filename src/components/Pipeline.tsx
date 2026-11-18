@@ -28,7 +28,16 @@ export function Pipeline() {
   return (
     <div className="relative mx-auto aspect-[440/460] w-full max-w-[460px]" aria-hidden="true">
       <svg viewBox="0 0 440 460" className="absolute inset-0 h-full w-full">
-        <g stroke="#3A322C" strokeWidth="1.5" fill="none">
+        {/* dark halo keeps the graph readable over the bright shader */}
+        <defs>
+          <radialGradient id="core-halo">
+            <stop offset="0%" stopColor="#0D0B0A" stopOpacity="0.85" />
+            <stop offset="60%" stopColor="#0D0B0A" stopOpacity="0.45" />
+            <stop offset="100%" stopColor="#0D0B0A" stopOpacity="0" />
+          </radialGradient>
+        </defs>
+        <circle cx="260" cy="220" r="170" fill="url(#core-halo)" />
+        <g stroke="#F2EDE6" strokeOpacity="0.55" strokeWidth="1.5" fill="none">
           {inputs.map((n) => (
             <motion.path
               key={n.label}
@@ -47,11 +56,11 @@ export function Pipeline() {
             </circle>
           ))}
         <path className="flow" d="M260 220 C 330 220, 330 330, 380 330" stroke="#FF5A1F" strokeWidth="2" fill="none" />
-        <circle className="pulse" cx="260" cy="220" r="74" fill="none" stroke="#FF5A1F" strokeOpacity="0.5" />
-        <circle cx="260" cy="220" r="108" fill="none" stroke="#FF5A1F" strokeOpacity="0.15" />
-        <circle cx="260" cy="220" r="74" fill="none" stroke="#FF5A1F" strokeOpacity="0.3" />
-        <circle cx="260" cy="220" r="46" fill="#FF5A1F" />
-        <text x="260" y="225" textAnchor="middle" fontFamily="JetBrains Mono, monospace" fontSize="12" fill="#0D0B0A">
+        <circle className="pulse" cx="260" cy="220" r="74" fill="none" stroke="#FF8A5B" strokeOpacity="0.7" />
+        <circle cx="260" cy="220" r="108" fill="none" stroke="#F2EDE6" strokeOpacity="0.2" />
+        <circle cx="260" cy="220" r="74" fill="none" stroke="#F2EDE6" strokeOpacity="0.35" />
+        <circle cx="260" cy="220" r="46" fill="#0D0B0A" stroke="#FF5A1F" strokeWidth="2.5" />
+        <text x="260" y="226" textAnchor="middle" fontFamily="JetBrains Mono, monospace" fontSize="16" fontWeight="500" fill="#FF5A1F">
           AI
         </text>
       </svg>
