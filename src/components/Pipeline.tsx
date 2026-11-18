@@ -10,6 +10,19 @@ const outputs = [
   { label: "→ tiktok_ads", y: 330, solid: false },
 ];
 
+// Small "data packets" that run along the graph: inputs -> AI core -> ad platforms.
+const PACKETS = [
+  ...inputs.map((n, i) => ({
+    path: `M90 ${n.y} C 180 ${n.y}, 170 220, 260 220`,
+    dur: 2.4,
+    delay: i * 0.8,
+    r: 3,
+    color: "#F2EDE6",
+  })),
+  { path: "M260 220 C 330 220, 330 120, 380 120", dur: 1.6, delay: 0.4, r: 4, color: "#FFB27A" },
+  { path: "M260 220 C 330 220, 330 330, 380 330", dur: 1.6, delay: 1.2, r: 4, color: "#FFB27A" },
+];
+
 export function Pipeline() {
   const reduce = useReducedMotion();
   return (
@@ -27,6 +40,12 @@ export function Pipeline() {
           ))}
         </g>
         <path d="M260 220 C 330 220, 330 120, 380 120" stroke="#FF5A1F" strokeWidth="2" fill="none" />
+        {!reduce &&
+          PACKETS.map((pk, i) => (
+            <circle key={i} r={pk.r} fill={pk.color}>
+              <animateMotion dur={`${pk.dur}s`} begin={`${pk.delay}s`} repeatCount="indefinite" path={pk.path} />
+            </circle>
+          ))}
         <path className="flow" d="M260 220 C 330 220, 330 330, 380 330" stroke="#FF5A1F" strokeWidth="2" fill="none" />
         <circle className="pulse" cx="260" cy="220" r="74" fill="none" stroke="#FF5A1F" strokeOpacity="0.5" />
         <circle cx="260" cy="220" r="108" fill="none" stroke="#FF5A1F" strokeOpacity="0.15" />
@@ -55,7 +74,7 @@ export function Pipeline() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 1.2 + 0.15 * i }}
           className={`absolute right-0 -translate-y-1/2 px-2.5 py-2 font-mono text-[10px] sm:px-3.5 sm:text-xs ${
-            n.solid ? "bg-paper text-ink" : "border border-accent text-accent"
+            n.solid ? "bg-paper text-ink" : "border border-accent bg-ink text-accent"
           }`}
           style={{ top: `${(n.y / 460) * 100}%` }}
         >

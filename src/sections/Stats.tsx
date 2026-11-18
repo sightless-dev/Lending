@@ -1,4 +1,5 @@
 import { useLang } from "../lang";
+import { CountUp } from "../fx/CountUp";
 
 export function Stats() {
   const { t } = useLang();
@@ -12,7 +13,7 @@ export function Stats() {
               i < 2 ? "border-b lg:border-b-0" : ""
             } ${i === 1 ? "lg:border-r" : ""}`}
           >
-            <span className={`font-display text-4xl font-bold tracking-[-0.03em] md:text-5xl ${i === 3 ? "text-accent" : ""}`}>{s.value}</span>
+            <span className={`font-display text-4xl font-bold tracking-[-0.03em] md:text-5xl ${i === 3 ? "text-accent" : ""}`}><CountUp value={s.value} /></span>
             <span className="label text-[11px] text-muted md:text-xs">{s.label}</span>
           </div>
         ))}

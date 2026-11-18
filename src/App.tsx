@@ -7,15 +7,20 @@ import { Project } from "./sections/Project";
 import { Stack } from "./sections/Stack";
 import { Contact } from "./sections/Contact";
 import { useLang } from "./lang";
+import { Intro } from "./fx/Intro";
+import { ScrollMarquee } from "./fx/ScrollMarquee";
 
 export default function App() {
   const { t } = useLang();
   return (
     <div className="min-h-screen overflow-x-clip">
+      <Intro />
+      <div className="film-grain" aria-hidden="true" />
       <Header />
       <main>
         <Hero />
         <Stats />
+        <ScrollMarquee top="MEDIA BUYING ×" bottom="AI AUTOMATION ×" />
         <About />
         <Experience />
         <Project />
