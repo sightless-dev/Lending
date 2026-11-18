@@ -1,38 +1,33 @@
 import { Header } from "./components/Header";
 import { Hero } from "./sections/Hero";
+import { Stats } from "./sections/Stats";
 import { About } from "./sections/About";
 import { Experience } from "./sections/Experience";
-import { Skills } from "./sections/Skills";
+import { Project } from "./sections/Project";
+import { Stack } from "./sections/Stack";
 import { Contact } from "./sections/Contact";
-import { Footer } from "./components/Footer";
-import { GlowBackground } from "./components/GlowBackground";
-import { motion, AnimatePresence } from "framer-motion";
-import { useLang } from "./context/LanguageContext";
+import { useLang } from "./lang";
 
 export default function App() {
-  const { lang } = useLang();
-
+  const { t } = useLang();
   return (
-    <div className="relative min-h-screen overflow-clip text-white selection:bg-accent/30 selection:text-accent">
-      <GlowBackground />
+    <div className="min-h-screen overflow-x-clip">
       <Header />
-      <AnimatePresence mode="wait">
-        <motion.main
-          key={lang}
-          initial={{ opacity: 0, y: 10, filter: "blur(4px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          exit={{ opacity: 0, y: -10, filter: "blur(4px)" }}
-          transition={{ duration: 0.35, ease: "easeInOut" }}
-          className="relative z-10"
-        >
-          <Hero />
-          <About />
-          <Experience />
-          <Skills />
-          <Contact />
-        </motion.main>
-      </AnimatePresence>
-      <Footer />
+      <main>
+        <Hero />
+        <Stats />
+        <About />
+        <Experience />
+        <Project />
+        <Stack />
+        <Contact />
+      </main>
+      <footer className="border-t border-line">
+        <div className="label mx-auto flex max-w-container flex-wrap justify-between gap-4 px-4 py-8 text-muted sm:px-6">
+          <span>© {new Date().getFullYear()} {t.footer}</span>
+          <span>whyrat.online</span>
+        </div>
+      </footer>
     </div>
   );
 }

@@ -1,65 +1,51 @@
-import { Reveal } from "../components/Reveal";
-import { Card } from "../components/ui/Card";
-import { useLang } from "../context/LanguageContext";
+import { useState } from "react";
+import { useLang } from "../lang";
+import { Reveal, SectionLabel } from "../components/Reveal";
 
 export function Experience() {
-  const { lang } = useLang();
-
-  const c = {
-    ua: {
-      titlePart1: "Досвід", titlePart2: "роботи",
-      c1Exp: "Apr 2024 - Dec 2025 · 1 yr 9 mos",
-      c1Desc: <>Залив трафіку з Facebook (Meta Ads). Працюю з різними сетапами, запускаю автозаливи, розумію технічну частину антидетектів. Основний фокус — контроль ціни за FTD, утримання KPI та масштабування плюсових зв'язок.</>,
-      c2Exp: "Jan 2022 - Mar 2024 · 2 yrs 3 mos",
-      c2Desc: "Створення конвертящих креативів для гемблінгу. Розумію, як візуал впливає на аукціон FB (зниження CPM, підвищення CTR). Вмію генерувати нові зачепи (хуки) для пробиття банерної сліпоти."
-    },
-    ru: {
-      titlePart1: "Опыт", titlePart2: "работы",
-      c1Exp: "Apr 2024 - Dec 2025 · 1 yr 9 mos",
-      c1Desc: <>Залив трафика с Facebook (Meta Ads). Работаю с разными сетапами, запускаю автозаливы, понимаю техническую часть антидетектов. Основной фокус — контроль цены за FTD, удержание KPI и масштабирование плюсовых связок.</>,
-      c2Exp: "Jan 2022 - Mar 2024 · 2 yrs 3 mos",
-      c2Desc: "Создание конвертящих креативов для гемблинга. Понимаю, как визуал влияет на аукцион FB (снижение CPM, повышение CTR). Умею генерировать новые зацепы (хуки) для пробития баннерной слепоты."
-    }
-  }[lang];
-
+  const { t } = useLang();
+  const [open, setOpen] = useState(0);
   return (
-    <section id="experience" className="py-[80px]">
-      <div className="mx-auto w-[min(1200px,calc(100%-48px))]">
-        <Reveal>
-          <h2 className="mb-7 text-center text-[36px] max-md:text-[30px] font-bold tracking-[-0.02em]">
-            {c.titlePart1} <span className="text-accent">{c.titlePart2}</span>
-          </h2>
-        </Reveal>
-
-        <div className="grid gap-5">
-          <Reveal delay={0.05}>
-            <Card className="p-7">
-              <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-4">
-                <div className="text-[20px] font-extrabold tracking-[-0.02em]">Media Buyer • Gambling & Betting</div>
-                <div className="w-fit rounded-full border border-accent/20 bg-accent/10 px-4 py-1.5 text-[13px] font-medium text-accent/90 whitespace-nowrap">
-                  {c.c1Exp}
+    <section id="experience" className="mx-auto max-w-container px-4 py-20 sm:px-6 md:py-28">
+      <SectionLabel index="01">{t.exp.label}</SectionLabel>
+      <div className="border-b border-line">
+        {t.exp.jobs.map((job, i) => {
+          const isOpen = open === i;
+          return (
+            <Reveal key={job.period} delay={i * 0.05}>
+              <div className="border-t border-line">
+                <button
+                  type="button"
+                  onClick={() => setOpen(isOpen ? -1 : i)}
+                  aria-expanded={isOpen}
+                  className="group flex w-full flex-wrap items-baseline gap-x-10 gap-y-2 py-7 text-left"
+                >
+                  <span className="label w-[180px] shrink-0 text-muted">{job.period}</span>
+                  <span className="min-w-0 flex-[1_1_320px] text-2xl font-medium tracking-[-0.02em] transition-colors group-hover:text-accent md:text-[30px]">
+                    {job.role}
+                  </span>
+                  <span className={`text-base ${i === 0 ? "text-accent" : "text-muted"}`}>{job.company}</span>
+                  <span
+                    className={`ml-auto font-mono text-xl text-muted transition-transform duration-300 ${isOpen ? "rotate-45 text-accent" : ""}`}
+                    aria-hidden="true"
+                  >
+                    +
+                  </span>
+                </button>
+                <div className={`grid transition-[grid-template-rows] duration-500 ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
+                  <ul className="overflow-hidden md:pl-[220px]">
+                    {job.points.map((p) => (
+                      <li key={p} className="flex gap-4 pb-4 text-muted last:pb-8">
+                        <span className="mt-[11px] h-1.5 w-1.5 shrink-0 bg-accent" aria-hidden="true" />
+                        <span className="max-w-[760px]">{p}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
-              <p className="text-[16px] leading-[1.6] text-white/70">
-                {c.c1Desc}
-              </p>
-            </Card>
-          </Reveal>
-
-          <Reveal delay={0.1}>
-             <Card className="p-7 border-white/5 bg-white/[.01] opacity-75 hover:opacity-100 transition-opacity">
-               <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-4">
-                 <div className="text-[20px] font-extrabold tracking-[-0.02em] text-white/60">Creative Designer • Gambling</div>
-                 <div className="w-fit rounded-full border border-white/10 text-white/40 px-4 py-1.5 text-[13px] whitespace-nowrap">
-                  {c.c2Exp}
-                </div>
-               </div>
-               <p className="text-[16px] leading-[1.6] text-white/50">
-                 {c.c2Desc}
-               </p>
-             </Card>
-          </Reveal>
-        </div>
+            </Reveal>
+          );
+        })}
       </div>
     </section>
   );
